@@ -1,0 +1,133 @@
+/* ===== Warna & font (ubah di sini kalau ingin ganti tema) ===== */
+:root {
+    --pink:      #ff69b4;
+    --pink-tua:  #d94a94;
+    --blush:     #fff5f9;
+    --plum:      #2b1630;
+    --lilac:     #efe4fb;
+}
+ 
+html { scroll-behavior: smooth; }
+ 
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--plum);
+    background: #ffffff;
+    line-height: 1.7;
+}
+ 
+h1, h2, h3, .navbar-brand {
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+ 
+/* ===== Navbar ===== */
+.navbar-irul {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 2px solid var(--pink);
+}
+.navbar-irul .navbar-brand {
+    font-weight: 800;
+    color: var(--pink-tua);
+}
+.navbar-irul .nav-link {
+    color: var(--plum);
+    font-weight: 500;
+}
+.navbar-irul .nav-link:hover { color: var(--pink-tua); }
+ 
+/* ===== Hero ===== */
+.hero {
+    background: var(--blush);
+    padding: 4rem 0;
+}
+.hero-sub {
+    color: var(--pink-tua);
+    font-weight: 500;
+}
+.hero-title {
+    font-size: clamp(2.4rem, 7vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+}
+ 
+/* Bingkai foto: ada blok pink bergeser di belakangnya */
+.foto-frame {
+    position: relative;
+    max-width: 320px;
+}
+.foto-frame::before {
+    content: "";
+    position: absolute;
+    inset: 14px -14px -14px 14px;
+    background: var(--pink);
+    border-radius: 1.5rem;
+}
+.foto-frame img {
+    position: relative;
+    border-radius: 1.5rem;
+    border: 4px solid #fff;
+    display: block;
+    width: 100%;
+}
+ 
+/* ===== Tombol ===== */
+.btn-irul {
+    background: var(--pink);
+    border-color: var(--pink);
+    color: #fff;
+}
+.btn-irul:hover {
+    background: var(--pink-tua);
+    border-color: var(--pink-tua);
+    color: #fff;
+}
+.btn-outline-irul {
+    border: 2px solid var(--pink);
+    color: var(--pink-tua);
+}
+.btn-outline-irul:hover {
+    background: var(--pink);
+    color: #fff;
+}
+ 
+/* ===== Section umum ===== */
+.section { padding: 4rem 0; }
+.section-tint { background: var(--lilac); }
+ 
+.section-title {
+    text-align: center;
+    font-weight: 800;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 2rem;
+}
+ 
+/* ===== Kartu ===== */
+.card-irul {
+    border: 2px solid var(--pink);
+    border-radius: 1rem;
+    background: #fff;
+}
+.card-irul .list-group-item { background: transparent; }
+ 
+/* ===== Swiper ===== */
+.irul-swiper { max-width: 620px; }
+.irul-swiper img { cursor: zoom-in; }
+.irul-swiper .swiper-pagination-progressbar-fill { background: var(--pink); }
+ 
+/* ===== Foto selca bulat ===== */
+.selca {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--pink);
+}
+ 
+/* ===== Footer ===== */
+.footer {
+    background: var(--plum);
+    color: #fff;
+    padding: 1.5rem 0;
+}
