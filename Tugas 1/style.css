@@ -1,133 +1,278 @@
-/* ===== Warna & font (ubah di sini kalau ingin ganti tema) ===== */
+/* ===== Warna & font ===== */
 :root {
-    --pink:      #ff69b4;
-    --pink-tua:  #d94a94;
-    --blush:     #fff5f9;
-    --plum:      #2b1630;
-    --lilac:     #efe4fb;
+    --mawar:     #c25b85;   /* aksen utama */
+    --mawar-tua: #a2446b;   /* hover & teks aksen */
+    --plum:      #2f1f3a;   /* warna teks utama */
+    --kaca:      rgba(255, 255, 255, 0.85);
+    --latar:     #f7e6ea;   /* warna latar polos, ganti kode hex ini kalau ingin warna lain */
 }
- 
-html { scroll-behavior: smooth; }
- 
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'DM Sans', sans-serif;
     color: var(--plum);
-    background: #ffffff;
     line-height: 1.7;
+    background: var(--latar);
 }
- 
+
 h1, h2, h3, .navbar-brand {
     font-family: 'Bricolage Grotesque', sans-serif;
 }
- 
+
 /* ===== Navbar ===== */
 .navbar-irul {
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(6px);
-    border-bottom: 2px solid var(--pink);
+    background: rgba(255, 255, 255, 0.82);
+    border-bottom: 1px solid rgba(47, 31, 58, 0.15);
 }
 .navbar-irul .navbar-brand {
     font-weight: 800;
-    color: var(--pink-tua);
+    color: var(--mawar-tua);
 }
 .navbar-irul .nav-link {
     color: var(--plum);
     font-weight: 500;
 }
-.navbar-irul .nav-link:hover { color: var(--pink-tua); }
- 
-/* ===== Hero ===== */
-.hero {
-    background: var(--blush);
-    padding: 4rem 0;
-}
+.navbar-irul .nav-link:hover { color: var(--mawar-tua); }
+
+/* ===== Hero (langsung di atas langit) ===== */
+.hero { padding: 4rem 0 3rem; }
+
 .hero-sub {
-    color: var(--pink-tua);
+    color: var(--mawar-tua);
     font-weight: 500;
 }
 .hero-title {
     font-size: clamp(2.4rem, 7vw, 4.2rem);
     font-weight: 800;
-    line-height: 1.05;
+    line-height: 1.02;
     margin-bottom: 1rem;
 }
- 
-/* Bingkai foto: ada blok pink bergeser di belakangnya */
+.hero .lead {
+    max-width: 34rem;
+}
+
+/* Bingkai foto: blok pink-mawar bergeser di belakang */
 .foto-frame {
     position: relative;
-    max-width: 320px;
+    max-width: 340px;
 }
 .foto-frame::before {
     content: "";
     position: absolute;
     inset: 14px -14px -14px 14px;
-    background: var(--pink);
+    background: var(--mawar);
     border-radius: 1.5rem;
+    opacity: 0.85;
 }
 .foto-frame img {
     position: relative;
     border-radius: 1.5rem;
-    border: 4px solid #fff;
+    border: 5px solid #fff;
     display: block;
     width: 100%;
 }
- 
+
 /* ===== Tombol ===== */
 .btn-irul {
-    background: var(--pink);
-    border-color: var(--pink);
+    background: var(--mawar);
+    border-color: var(--mawar);
     color: #fff;
+    font-weight: 500;
 }
 .btn-irul:hover {
-    background: var(--pink-tua);
-    border-color: var(--pink-tua);
+    background: var(--mawar-tua);
+    border-color: var(--mawar-tua);
     color: #fff;
 }
 .btn-outline-irul {
-    border: 2px solid var(--pink);
-    color: var(--pink-tua);
+    border: 2px solid var(--mawar-tua);
+    color: var(--mawar-tua);
+    background: rgba(255, 255, 255, 0.55);
+    font-weight: 500;
 }
 .btn-outline-irul:hover {
-    background: var(--pink);
+    background: var(--mawar-tua);
     color: #fff;
 }
- 
-/* ===== Section umum ===== */
-.section { padding: 4rem 0; }
-.section-tint { background: var(--lilac); }
- 
+
+/* ===== Section ===== */
+.section { padding: 3.5rem 0; }
+
 .section-title {
     text-align: center;
     font-weight: 800;
     font-size: clamp(1.5rem, 4vw, 2.2rem);
     margin-bottom: 2rem;
 }
- 
+
+/* Bagian moments, playlist, dan pesan: isi diletakkan di panel putih
+   supaya tiap bagian terpisah jelas dari latar */
+#moments > .container,
+#playlist > .container,
+#pesan > .container {
+    background: var(--kaca);
+    border-radius: 1.5rem;
+    padding: 2.5rem 1.5rem;
+}
+
 /* ===== Kartu ===== */
 .card-irul {
-    border: 2px solid var(--pink);
-    border-radius: 1rem;
-    background: #fff;
+    background: var(--kaca);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 24px rgba(120, 70, 110, 0.12);
 }
-.card-irul .list-group-item { background: transparent; }
- 
+.card-irul .list-group-item {
+    background: transparent;
+    padding: 0.75rem 1.25rem;
+    border-color: rgba(47, 31, 58, 0.12);
+}
+
+/* Di dalam panel kaca, kartu dibuat putih agar tetap terlihat */
+#pesan .card-irul { background: #fff; }
+
 /* ===== Swiper ===== */
-.irul-swiper { max-width: 620px; }
+.irul-swiper { max-width: 640px; }
 .irul-swiper img { cursor: zoom-in; }
-.irul-swiper .swiper-pagination-progressbar-fill { background: var(--pink); }
- 
+.irul-swiper .swiper-pagination-progressbar-fill { background: var(--mawar); }
+
 /* ===== Foto selca bulat ===== */
 .selca {
     width: 200px;
     height: 200px;
     object-fit: cover;
     border-radius: 50%;
-    border: 4px solid var(--pink);
+    border: 5px solid #fff;
 }
- 
+
 /* ===== Footer ===== */
 .footer {
-    background: var(--plum);
+    background: rgba(47, 31, 58, 0.88);
     color: #fff;
     padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+
+/* ===== Sidebar (bisa hide) ===== */
+:root { --lebar-sidebar: 260px; }
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--lebar-sidebar);
+    background: var(--plum);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    z-index: 1040;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s;
+}
+.sidebar.terbuka {
+    transform: translateX(0);
+    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.25);
+}
+.sidebar-brand {
+    padding: 1.5rem 1.25rem 1rem 4.5rem; /* ruang untuk tombol di kiri */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.sidebar-sub {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: #e7a9c3;
+}
+.sidebar-judul {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+.sidebar-menu {
+    flex: 1;
+    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    overflow-y: auto;
+}
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1rem;
+    border-radius: 0.75rem;
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: none;
+    font-weight: 500;
+    /* efek muncul satu per satu */
+    opacity: 0;
+    transform: translateX(-16px);
+    transition: opacity 0.3s, transform 0.3s, background 0.2s;
+    transition-delay: 0.1s, 0.1s, 0s;
+}
+.sidebar.terbuka .sidebar-link { opacity: 1; transform: none; }
+.sidebar.terbuka .sidebar-link:nth-child(2) { transition-delay: 0.16s, 0.16s, 0s; }
+.sidebar.terbuka .sidebar-link:nth-child(3) { transition-delay: 0.22s, 0.22s, 0s; }
+.sidebar.terbuka .sidebar-link:nth-child(4) { transition-delay: 0.28s, 0.28s, 0s; }
+
+.sidebar-link:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+.sidebar-link.aktif { background: var(--mawar); color: #fff; }
+.sidebar.terbuka .sidebar-link.nonaktif { opacity: 0.45; cursor: default; }
+.sidebar-link.nonaktif:hover { background: transparent; color: rgba(255, 255, 255, 0.82); }
+.sidebar-link small { margin-left: auto; font-size: 0.7rem; }
+
+.sidebar-user {
+    padding: 1rem 1.25rem 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Konten bergeser halus saat sidebar dibuka (desktop) */
+.konten {
+    margin-left: 0;
+    min-height: 100vh;
+    transition: margin-left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (min-width: 768px) {
+    .konten.geser { margin-left: var(--lebar-sidebar); }
+}
+
+/* Tombol hamburger */
+.btn-sidebar {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1050;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 0.85rem;
+    background: var(--mawar);
+    color: #fff;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(120, 70, 110, 0.35);
+    transition: background 0.2s, transform 0.2s;
+}
+.btn-sidebar:hover { background: var(--mawar-tua); transform: scale(1.06); }
+
+/* Lapisan gelap (HP) */
+.sidebar-lapisan {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1030;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s, visibility 0.35s;
+}
+.sidebar-lapisan.terbuka { opacity: 1; visibility: visible; }
+@media (min-width: 768px) {
+    .sidebar-lapisan { display: none; }
 }
